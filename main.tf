@@ -68,7 +68,7 @@ resource "dsm_azure_sobject" "git_rsa_ag" {
   }
   custom_metadata = {
     azure_key_state =  "Enabled"
-    azure-key-name = "git_rsa"
+    azure-key-name = "git-rsa-pp"
   }
   key_ops         = ["SIGN", "VERIFY", "ENCRYPT", "DECRYPT", "WRAPKEY", "UNWRAPKEY", "EXPORT", "APPMANAGEABLE", "HIGHVOLUME"]
 }

@@ -60,7 +60,7 @@ resource "dsm_azure_group" "git_ag" {
 resource "dsm_azure_sobject" "git_rsa_ag" {
 
   name            = "git_rsa_ag"
-  group_id        = dsm_group.git_ag.id
+  group_id        = dsm_azure_group.git_ag.id
   description     = "dsm_azure_sobject"
   enabled          = true
   key             = {

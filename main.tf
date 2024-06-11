@@ -7,6 +7,8 @@ terraform {
   }
 }
 
+variable "password" {}
+variable "azure_secret_id" {}
 provider "dsm" {
   endpoint = var.endpoint
   username = var.username

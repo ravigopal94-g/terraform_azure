@@ -10,7 +10,7 @@ terraform {
 provider "dsm" {
   endpoint = var.endpoint
   username = var.username
-  password = "${var.password}
+  password = "${var.password}"
   acct_id  = var.acct_id
 }
 

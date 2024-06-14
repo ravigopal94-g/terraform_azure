@@ -1,0 +1,24 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
+- script: |
+    echo Add other tasks to build, test, and deploy your project.
+- task: Terraform@2
+  inputs:
+    TemplatePath: '/ado'
+    Arguments: 'terraform init'
+    InstallTerraform: false
+    UseAzureSub: false
+  displayName: 'Run a multi-line script'

@@ -15,10 +15,3 @@ steps:
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
-- task: Terraform@2
-  inputs:
-    TemplatePath: '/ado'
-    Arguments: 'terraform init'
-    InstallTerraform: false
-    UseAzureSub: false
-  displayName: 'Run a multi-line script'

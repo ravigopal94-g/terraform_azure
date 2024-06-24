@@ -10,12 +10,10 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo Hello, world!
-  
+- script: echo Hello, world!  
+- task: TerraformTaskV4@4
+  inputs:
+    provider: 'dsm'
+    command: 'init'
   displayName: 'Run a one-line script'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-- task: TerraformInstaller@1
-  inputs:
-    terraformVersion: 'latest'

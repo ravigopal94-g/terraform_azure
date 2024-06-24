@@ -1,0 +1,26 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+trigger:
+  branches:
+    include:
+      - master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.x'
+    addToPath: true
+
+- script: |
+    terraform init
+    terraform validate
+  displayName: 'Terraform Init and Validate'
+
+- script: terraform apply --auto-approve -var="azure_secret_id=$(AZURE_SECRET_ID)" -var="password=$(FORTANIX_PASSWORD)"
+  displayName: 'Terraform Apply'
+  condition: succeeded()

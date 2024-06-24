@@ -25,14 +25,14 @@ provider "dsm" {
 5. Check the dashboard
 */
 
-resource "dsm_group" "git_ng" {
-  name = "git_ng"
+resource "dsm_group" "ado_ng" {
+  name = "ado_ng"
 }
 
 
-resource "dsm_sobject" "git_rsa" {
-  name     = "git_rsa"
-  group_id = dsm_group.git_ng.id
+resource "dsm_sobject" "ado_rsa" {
+  name     = "ado_rsa"
+  group_id = dsm_group.ado_ng.id
   key_size = 2048
   key_ops = [
     "ENCRYPT",
@@ -46,8 +46,8 @@ resource "dsm_sobject" "git_rsa" {
   obj_type = "RSA"
 }
 
-resource "dsm_azure_group" "git_ag" {
-  name            = "git_ag"
+resource "dsm_azure_group" "ado_ag" {
+  name            = "ado_ag"
   description     = "dsm_azure_group"
   url             = "https://ravigterraform.vault.azure.net/"
   client_id       = "51fb90ff-6b70-47ac-b76a-b67139aa3a63"
@@ -57,18 +57,18 @@ resource "dsm_azure_group" "git_ag" {
   secret_key      = "${var.azure_secret_id}"
 }
 
-resource "dsm_azure_sobject" "git_rsa_ag" {
+resource "dsm_azure_sobject" "ado_rsa_ag" {
 
-  name            = "git_rsa_ag"
-  group_id        = dsm_azure_group.git_ag.id
+  name            = "ado_rsa_ag"
+  group_id        = dsm_azure_group.ado_ag.id
   description     = "dsm_azure_sobject"
   enabled          = true
   key             = {
-    kid =  dsm_sobject.git_rsa.id
+    kid =  dsm_sobject.ado_rsa.id
   }
   custom_metadata = {
     azure_key_state =  "Enabled"
-    azure-key-name = "git-rsa-pp"
+    azure-key-name = "ado-rsa-pp"
   }
   key_ops         = ["SIGN", "VERIFY", "ENCRYPT", "DECRYPT", "WRAPKEY", "UNWRAPKEY", "EXPORT", "APPMANAGEABLE", "HIGHVOLUME"]
 }

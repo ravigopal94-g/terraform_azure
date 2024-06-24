@@ -11,7 +11,13 @@ pool:
 
 steps:
 - script: echo Hello, world!
+  
   displayName: 'Run a one-line script'
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
+- task: TerraformTaskV4@4
+  inputs:
+    provider: 'azurerm'
+    command: 'terraform init'
+    backendAzureRmUseEnvironmentVariablesForAuthentication: true

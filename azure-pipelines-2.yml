@@ -20,7 +20,7 @@ steps:
 - task: Fortanix-Secret-Management@1
   inputs:
     FORTANIX_API_ENDPOINT: 'apac.smartkey.io'
-    FORTANIX_API_KEY: '$FORTANIX_API_KEY'
+    FORTANIX_API_KEY: "$FORTANIX_API_KEY"
     FORTANIX_SECRET: 'adf-demo'
     SECRET_VARIABLE_NAME: 'FORTANIX_SECRET_VALUE'
   env:

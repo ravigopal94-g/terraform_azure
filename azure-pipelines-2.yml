@@ -1,0 +1,9 @@
+trigger:
+- none   # No automatic trigger (you'll run it manually via CLI)
+
+pool:
+  name: 'SelfHostedWindowsPool'
+
+steps:
+- powershell: Write-Host "Hello from self-hosted Ubuntu agent!"
+  displayName: "Print Hello World"

@@ -11,11 +11,11 @@ pool:
 
 steps:
 - script: echo Hello, world!  
-- task: TerraformTaskV4@4
-  inputs:
-    provider: 'dsm'
-    command: 'init'
-  displayName: 'Run a one-line script'
+#- task: TerraformTaskV4@4
+#  inputs:
+#    provider: 'dsm'
+#    command: 'init'
+#  displayName: 'Run a one-line script'
 
 - task: Fortanix-Secret-Management@1
   inputs:

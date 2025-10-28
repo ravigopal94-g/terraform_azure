@@ -1,6 +1,11 @@
 trigger:
 - none   # No automatic trigger (you'll run it manually via CLI)
 
+variables:
+  - name: FORTANIX_API_KEY
+    value: ''
+    #allowOverride: true  # 👈 allows setting it at queue time
+
 pool:
   name: 'Default'
 

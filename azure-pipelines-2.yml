@@ -5,7 +5,6 @@ parameters:
   - name: FORTANIX_API_KEY
     type: string
     default: ''
-    #allowOverride: true  # 👈 allows setting it at queue time
 
 pool:
   name: 'Default'
@@ -20,8 +19,6 @@ steps:
 - task: Fortanix-Secret-Management@1
   inputs:
     FORTANIX_API_ENDPOINT: 'apac.smartkey.io'
-    FORTANIX_API_KEY: "$FORTANIX_API_KEY"
+    FORTANIX_API_KEY: ${{ parameters.FORTANIX_API_KEY }}
     FORTANIX_SECRET: 'adf-demo'
     SECRET_VARIABLE_NAME: 'FORTANIX_SECRET_VALUE'
-  env:
-      FORTANIX_API_KEY: ${{ parameters.FORTANIX_API_KEY }}

@@ -17,7 +17,8 @@ steps:
 #    command: 'init'
 #  displayName: 'Run a one-line script'
 
-- task: Fortanix-Secret-Management@1
+
+- task: FortanixSecretManagement@1
   inputs:
     FORTANIX_API_ENDPOINT: 'apac.smartkey.io'
     FORTANIX_API_KEY: '$(FORTANIX_API_KEY)'

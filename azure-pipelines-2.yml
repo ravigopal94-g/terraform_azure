@@ -8,7 +8,7 @@ steps:
 - task: CmdLine@2
   displayName: 'Run a one-line script'
   inputs:
-    script: echo '$(FORTANIX_API_KEY)'
+    script: echo $FORTANIX_API_KEY
 - task: Fortanix-Secret-Management@1
   inputs:
     FORTANIX_API_ENDPOINT: 'apac.smartkey.io'

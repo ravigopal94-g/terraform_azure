@@ -25,4 +25,4 @@ steps:
     FORTANIX_SECRET: 'adf-demo'
     SECRET_VARIABLE_NAME: 'FORTANIX_SECRET_VALUE'
 - bash: |
-        echo "Secret Found in apac $(FORTANIX_SECRET_VALUE)"   
+        echo "Secret Found in DSM, $(FORTANIX_SECRET_VALUE)"   

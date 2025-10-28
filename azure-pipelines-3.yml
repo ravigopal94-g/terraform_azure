@@ -1,0 +1,22 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+- task: Fortanix-Secret-Management@1
+  inputs:
+    FORTANIX_API_ENDPOINT: 'apac.smartkey.io'
+    FORTANIX_API_KEY: '$(FORTANIX_API_KEY)'
+    FORTANIX_SECRET: 'adf-demo'
+    SECRET_VARIABLE_NAME: 'FORTANIX_SECRET_VALUE'
+- bash: |
+        echo "Secret Found in apac '$(FORTANIX_SECRET_VALUE)"   
